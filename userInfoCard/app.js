@@ -42,6 +42,12 @@
 					$scope.collapse = function() {
 						$scope.collapsed = !$scope.collapsed;
 					};
+					$scope.removeFriend = function(friend) {
+						var i = $scope.user.friends.indexOf(friend);
+						if (i > -1) {
+							$scope.user.friends.splice(i, 1);
+						}
+					};
 
 				} // directive controller
 			}; //return
@@ -53,6 +59,9 @@
 			return {
 				restrict: 'E',
 				templateUrl: 'removeFriend.html',
+				scope: {
+					notifyParent: '&method'
+				},
 				controller: function($scope) {
 					$scope.removing = false;
 					$scope.startRemove = function() {
@@ -61,12 +70,10 @@
 					$scope.cancelRemove = function() {
 						$scope.removing = false;
 					};
-					$scope.removeFriend = function(friend) {
-						var i = $scope.user.friends.indexOf(friend);
-						if (i > -1) {
-							$scope.user.friends.splice(i, 1);
-						}
+					$scope.confirmRemove = function() {
+						$scope.notifyParent();
 					}
+					
 				} // directive controller
 			}; //return
 		}]); // directive
