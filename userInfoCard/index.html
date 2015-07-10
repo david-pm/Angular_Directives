@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Directive Exercises</title>
+	<link rel="stylesheet" type="text/css" href="../bootstrap.min.css">
+	<script src="../angular.min.js"></script>
+	<script src="app.js"></script>
+</head>
+<body ng-app="app">
+	
+	<div class="container" 
+		ng-controller="MainController">
+		
+		<header class="jumbotron">
+			<h1 class="text-warning text-center">AngularJS Directives</h1>
+		</header>
+		<div class="row">
+			<div class="col-md-4 pull-left">
+
+				<user-info-card></user-info-card>
+
+			</div>
+		</div>
+		
+	</div>
+
+</body>
+</html>

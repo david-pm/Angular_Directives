@@ -1,0 +1,31 @@
+<div class="panel panel-primary">
+	
+	<div class="panel-heading">{{user.name}}</div>
+	<div class="panel-body">
+		<div 
+			ng-show="!!user.address">
+			<h4>Address:</h4>
+			<p>{{user.address.street}}</p>
+			<p>{{user.address.city}}</p>
+			<p>{{user.address.planet}}</p>
+		</div>
+		
+	
+		<hr />
+		<h4>Friends:</h4>
+		<ul class='col-md-12'>
+			<li 
+				ng-repeat='friend in user.friends'>
+				{{friend}}
+			</li>
+		</ul>
+		<p class="text-primary"
+			ng-show="!!user.rank">
+			<b>Rank: </b>{{user.rank}}
+		</p>
+		<button class="btn btn-default" 
+			ng-show="!user.rank"
+			ng-click="knightMe(user)">Knight Me</button>
+	</div>
+
+</div>
