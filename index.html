@@ -2,8 +2,8 @@
 <html>
 <head>
 	<title>Directive Exercises</title>
-	<link rel="stylesheet" type="text/css" href="../bootstrap.min.css">
-	<script src="../angular.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+	<script src="angular.min.js"></script>
 	<script src="app.js"></script>
 	<style type="text/css">
 		.panel-heading, .address { cursor: pointer; }
@@ -17,17 +17,17 @@
 		<header class="jumbotron">
 			<h1 class="text-warning text-center">AngularJS Directives</h1>
 			<h4>Remember: best practices dictate we use shared and/or inherited scope on decorator directives. For component directives, its best to use isolated scope.</h4>
-			<p>In this example, we want to give the-address directive its own collapsed variable of its own.</p>
+			<h4>In this example, we want to give the-address directive its own collapsed variable of its own.</h4>
 		</header>
 		<div class="row">
 			<div class="col-md-4">
 
-				<user-info-card user="user1"></user-info-card>
+				<user-info-card who="user1" collapsed="false"></user-info-card>
 
 			</div>
 			<div class="col-md-4">
 
-				<user-info-card user="user2"></user-info-card>
+				<user-info-card who="user2" collapsed="true"></user-info-card>
 			
 			</div>
 		</div>

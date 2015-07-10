@@ -11,10 +11,14 @@
 	
 		<hr />
 		<h4>Friends:</h4>
-		<ul class='col-md-12'>
-			<li 
+		<ul class="list-item-group">
+			<li class="list-item"
 				ng-repeat='friend in user.friends'>
 				{{friend}}
+
+				<remove-friend></remove-friend>
+
+				
 			</li>
 		</ul>
 		<p class="text-primary"
