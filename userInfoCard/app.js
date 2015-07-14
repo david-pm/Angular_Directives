@@ -31,7 +31,7 @@
 			return {
 				templateUrl: "userinfocard.html",
 				scope: {
-					user: "=who",
+					user: "=",
 					initCollapsed: '@collapsed'
 				}, // false is default which is shared scope, set to true for inherited scope, set to {} for isolated scope
 				controller: function($scope) {
