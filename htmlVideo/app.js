@@ -3,21 +3,21 @@
 	angular.module('app', []);
 
 	angular.module('app').controller('MainController', ['$scope', function($scope){
-		$scope.handlePause = function() {
-			console.log('video was paused');
+		$scope.messages = [];
+		$scope.handlePause = function(e) {
+			console.log(e);
+			$scope.messages.push({text: 'paused!'})
 		};
 	}]);
 
-	angular.module('app').directive('eventPause', function() {
+	angular.module('app').directive('eventPause', function($parse) {
 		return {
 			restrict: 'A',
-			scope: {
-				eventPause: '&'
-			},
 			link: function(scope, el, attrs) {
+				var fn = $parse(attrs['eventPause']);
 				el.on('pause', function(event) {
 					scope.$apply(function() {
-						scope.eventPause();
+						fn(scope, {evt: event});
 					})
 				})
 			}
