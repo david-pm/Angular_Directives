@@ -1,0 +1,14 @@
+<div 
+	ng-show="!!person.address && !collapsed"
+	ng-click="collapseAddress()">
+	<h4 class="address">Full Address:</h4>
+	<p>{{person.address.street}}</p>
+	<p>{{person.address.city}}</p>
+	<p>{{person.address.planet}}</p>
+</div>
+<div
+	ng-show="!!person.address && collapsed"
+	ng-click="expandAddress()">
+	<h4 class="address">Partial Address:</h4>
+	{{person.address.planet}}...
+</div>
