@@ -54,6 +54,32 @@
 		};
 	}]);
 
+	angular.module('app').directive('userPanel', 
+		[function() {
+			return {
+				transclude: true,
+				templateUrl: 'userpanel.html',
+				scope: {
+					name: '@',
+					level: '=',
+					initCollapsed: '@collapsed'
+				},
+				controller: function($scope) {
+					$scope.collapsed = ($scope.initCollapsed === 'true');
+					$scope.nextState = function(e) {
+						e.stopPropagation();
+						e.preventDefault();
+						$scope.level++;
+						$scope.level = $scope.level % 4;
+					}
+					
+					$scope.collapse = function() {
+						$scope.collapsed = !$scope.collapsed;
+					};
+				}
+			}
+	}]);
+
 	angular.module('app').directive('personInfoCard', 
 		[function(){
 			return {
@@ -64,17 +90,11 @@
 				}, // false is default which is shared scope, set to true for inherited scope, set to {} for isolated scope
 				
 				controller: function($scope) {
-					$scope.collapsed = ($scope.initCollapsed === 'true');
-					$scope.nextState = function() {
-						$scope.person.level++;
-						$scope.person.level = $scope.person.level % 4;
-					}
+					
 					$scope.knightMe = function(person) {
 						person.rank = "Knight";
 					};
-					$scope.collapse = function() {
-						$scope.collapsed = !$scope.collapsed;
-					};
+					
 					$scope.removeFriend = function(friend) {
 						var i = $scope.person.friends.indexOf(friend);
 						if (i > -1) {
@@ -96,15 +116,7 @@
 				}, // false is default which is shared scope, set to true for inherited scope, set to {} for isolated scope
 				
 				controller: function($scope) {
-					$scope.collapsed = ($scope.initCollapsed === 'true');
-					$scope.nextState = function() {
-						$scope.droid.level++;
-						$scope.droid.level = $scope.droid.level % 4;
-					}
 					
-					$scope.collapse = function() {
-						$scope.collapsed = !$scope.collapsed;
-					};
 
 				} // directive controller
 			}; //return
