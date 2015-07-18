@@ -2,7 +2,7 @@
 	angular.module('app', []);
 
 	angular.module('app').controller('MainController', function($scope){
-		
+		$scope.items = [1,23,45,5];
 	});
 
 	angular.module('app').directive('', ['', function(){
@@ -20,7 +20,7 @@
 			// replace: true,
 			// transclude: true,
 			// compile: function(tElement, tAttrs, function transclude(function(scope, cloneLinkingFn){ return function linking(scope, elm, attrs){}})),
-			link: function(scope, el, attrs, controller) {
+			link: function($scope, iElm, iAttrs, controller) {
 				
 			}
 		};
