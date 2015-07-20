@@ -40,15 +40,24 @@
 		</h4>
 	</li>
 	<li><hr></li>
-	<li><h2>Movies Demo:</h2></li>
+	<li><h2>List of Movies I Like &mdash; (Demo):</h2></li>
 	<li ng-repeat="m in movies">
 		<h4>{{m.title}}, {{m.director}}</h4>
 	</li>
 	<li>
 		<button class="btn btn-danger" 
 		remove-movie-button>Delete</button>
-		<button class="btn btn-success" 
-			add-movie-button>Add Movie</button>
+		<button class="btn btn-default" 
+			ng-show="!toggleAdd"
+			ng-click="toggleAdd = !toggleAdd">Add Movie</button>
+		<span ng-show="toggleAdd">
+			<button class="btn btn-success" 
+				add-movie-button>Add Movie</button>
+			<br /><br />
+			<input class="form-control" type="text" ng-model="title" placeholder="Movie title" />
+			<br />
+			<input class="form-control" type="text" ng-model="director" placeholder="Movie director" />
+		</span>
 	</li>
 </ul>
 </body>
