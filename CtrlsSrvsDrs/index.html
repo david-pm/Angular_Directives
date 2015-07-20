@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html ng-app="my.new.module">
+<head>
+	<title>Directive Exercises</title>
+	
+	<link rel="stylesheet" type="text/css" href="../libs/bootstrap.min.css">
+	<script src="../libs/angular.min.js"></script>
+	<script src="app.js"></script>
+	
+</head>
+<body ng-controller="MoviesListController" class="container">
+<div class="jumbotron">
+	<h1 class="text-center">Controllers, Services, Directives</h1>
+</div>
+<ul class="list-unstyled well">
+	<li>
+		<h4>
+		<em>Services: </em>services tend to tie in infrastructure, backend, or other browser features. Managing data via scopes is reckless. Scopes can easily become corrupted or dirtied by other controllers, directives, models and the like. It gets messy quickly. Having a central channel (in this case a service) to manage all data, and requests to modify it any way, not only is a lot cleaner - it’s also much easier to manage as the application grows. Lastly - it keeps your code modular (something Angular excels at). Should you ever need that service for another project, you don’t need to dig through scopes, controllers, filters, etc. to find relevant code - it’s all there in the service.
+		</h4>
+		<h4>
+		<em>Controllers: </em>controllers attach and manage values/functionality tied to the $scope. Ultimately $scope tends to be heavily presentation driven. IE its a view model.
+		Controllers should be used purely to wire up services, dependencies and other objects, and assign them to the view via scope. They’re also an excellent choice when needing to handle complex business logic in your views.
+		</h4>
+		<h4>
+		<em>Directives: </em>directives allow you to integrate with DOM events/functionality not handled by existing handlers. The majority of an angular application’s complexity is in the directives. They are a powerful tool for working with and modifying the DOM. A common anti-pattern is adding DOM interactions to the controller. Angular defines directives as chunks of code you use for DOM manipulation, but it’s also great for interactions.
+		</h4>
+	</li>
+	<li>	
+		<h3>
+		So you'll want to push code in one of three directions: 
+		</h3>
+		<h4>
+		Code from my controller is really logically another piece of presentation data/logic and should be split into another controller. Note when working with items on $scope, its best to segregate parts that each controller is responsible for into their own objects on $scope.
+		</h4>
+		<h4>
+		Code from my controller is a piece of application infrastructure or utility code, that may need to be shared through the app, and should be split off into a service 
+		</h4>
+		<h4>
+		Code from my controller is concerned heavily with presentation/DOM organization, and therefore should be split off into its own directive
+		</h4>
+	</li>
+	<li><hr></li>
+	<li><h2>Movies Demo:</h2></li>
+	<li ng-repeat="m in movies">
+		<h4>{{m.title}}, {{m.director}}</h4>
+	</li>
+	<li>
+		<button class="btn btn-danger" 
+		remove-movie-button>Delete</button>
+		<button class="btn btn-success" 
+			add-movie-button>Add Movie</button>
+	</li>
+</ul>
+</body>
+</html>
