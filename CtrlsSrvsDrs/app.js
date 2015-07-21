@@ -1,7 +1,7 @@
 
 var module = angular.module('my.new.module', []);
 
-	module.service('Movie', [ '$rootScope', function($rootScope){
+	module.service('MovieService', [ '$rootScope', function($rootScope){
 		var service = {
 			movies: [
 				 { title: "Dune", director: "David Lynch" },
@@ -26,24 +26,24 @@ var module = angular.module('my.new.module', []);
 		return service;
 	}]);
 
-	module.controller('MoviesListController', [ '$scope','Movie', function($scope, Movie){
+	module.controller('MoviesListController', [ '$scope','MovieService', function($scope, MovieService){
 		$scope.toggleAdd = false;
 		$scope.$on('movies.update', function(event) {
 			console.log(event);
 			$scope.title = "";
 			$scope.director = "";
-			$scope.movies = Movie.movies;
+			$scope.movies = MovieService.movies;
 		});
 
-		$scope.movies = Movie.movies;
+		$scope.movies = MovieService.movies;
 	}]);
 	
-	module.directive( "addMovieButton", [ 'Movie', function( Movie ) {
+	module.directive( "addMovieButton", [ 'MovieService', function( MovieService ) {
 	   return {
 	     link: function( scope, el, attrs ) {
 	        el.on("click", function() {
-	            //Movie.addMovie( { title: "Star Wars", director: "George Lucas" } );
-	            Movie.addMovie(scope.title, scope.director);
+	            //MovieService.addMovie( { title: "Star Wars", director: "George Lucas" } );
+	            MovieService.addMovie(scope.title, scope.director);
 	            scope.toggleAdd = false;
 	            scope.$apply();
 	        });
@@ -51,11 +51,11 @@ var module = angular.module('my.new.module', []);
 	   }
 	}]);
 
-	module.directive( "removeMovieButton", [ 'Movie', function( Movie ) {
+	module.directive( "removeMovieButton", [ 'MovieService', function( MovieService ) {
 	   return {
 	     link: function( scope, el, attrs ) {
         	el.on("click", function() {
-            	Movie.removeMovie();
+            	MovieService.removeMovie();
             	scope.$apply();
         	});
 	     }
