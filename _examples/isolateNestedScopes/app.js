@@ -26,12 +26,14 @@
 	
 	.directive('nested', function(){
 		return {
-			// change this back to false (shared scope), and instead of creating
+			// change this back to shared scope, and instead of creating
 			// its own local scope vars, it will be grabbing the vars of it parent
 			// which is myDirective
 			scope: true,
 			templateUrl: 'nested.html',
 			controller: function($scope) {
+				// uncomment below and see what happens
+				// $scope.items = {};
 				$scope.collapsed = false;
 				$scope.collapse = function() {
 				   $scope.collapsed = !$scope.collapsed;

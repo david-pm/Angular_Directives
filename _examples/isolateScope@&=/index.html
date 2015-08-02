@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+	<title>Isolate Scopes and Parameters '@&='</title>
+	
+	<link rel="stylesheet" type="text/css" href="../../libs/bootstrap.min.css">
+	<script src="../../libs/angular.min.js"></script>
+	<script src="app.js"></script>
+	
+</head>
+<body ng-controller="MainController">
+	<div class="container">
+	    <div class="jumbotron">
+    		<h1 class="text-center">Isolate Scopes and Parameters '@&='</h1>
+            <hr />
+            <p>Parent (controller's) scope: {{copy}} - <input type="text" ng-model="copy" /></p>
+        
+            <my-component attr-one-way="{{copy}}"></my-component>
+
+            <another-component attr-two-way="copy"></another-component>
+        
+            <last-component isolated-expression="updateCopy(val)"></last-component>
+	    </div>    
+	</div>
+</body>
+</html>
