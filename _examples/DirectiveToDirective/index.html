@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Directives Talking to Directives</title>
+    
+    <link rel="stylesheet" type="text/css" href="../../libs/bootstrap.min.css">
+	<script src="../../libs/angular.min.js"></script>
+	
+    <style>body { background: black; color: white; }.pad-top { padding-top: 20px; }</style>
+</head>
+<body ng-app="greetings">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6 col-sm-offset-3">
+                <div class="col-sm-12"><img class="center-block" src="app/misfits/grim.png" alt="Alternate Text" /></div>
+                <hr />
+                <div class="col-sm-4">
+
+                    <misfits static-age halloween die btn-text="songs"></misfits>
+
+                </div>
+                <div class="col-sm-4">
+
+                    <misfits halloween btn-text="scary song"></misfits>
+
+                </div>
+                <div class="col-sm-4">
+
+                    <misfits die btn-text="death song"></misfits>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app/app.js"></script>
+    <script src="app/misfits/misfitsDirective.js"></script>
+    <script src="app/misfits/songsDirective.js"></script>
+</body>
+</html>

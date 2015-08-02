@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+	<title>Directive Exercises</title>
+
+	<script src="../../libs/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../libs/bootstrap.min.css">
+	<script src="../../libs/angular.min.js"></script>
+	<script src="app.js"></script>
+	
+</head>
+<body ng-controller="MainController">
+	<h1 class="well">Bounty Hunters</h1>
+	<div class="container">
+		<div my-repeat="hunter in bountyHunters">
+			<p>Name: {{hunter.name}}</p>
+		</div>
+		<hr />
+		<button class="btn btn-primary" 
+			ng-click="add()">Add</button>
+		<button class="btn btn-primary" 
+			ng-click="remove()">Remove</button>
+	</div>
+</body>
+</html>

@@ -1,0 +1,14 @@
+<div ng-show="collapsed">
+    <h4 style="cursor: pointer; color: green;"
+        ng-click="collapse()">{{items.text}}</h4>
+</div>
+
+<div ng-show="!collapsed">
+    <h4 style="cursor: pointer; color: red;"
+        ng-click="collapse()">{{items.text}}</h4>
+</div>
+
+<div>
+Nested within the isolate scoped 'my-directive' is this inherited scoped directive, 
+which also has a collapsed variable only visible to itself:<br /> <b>{{collapsed}}</b>
+</div>

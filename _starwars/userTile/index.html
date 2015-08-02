@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+	<title>Directive Exercises</title>
+	
+	<script src="../../libs/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../libs/bootstrap.min.css">
+	<script src="../../libs/angular.min.js"></script>
+	<script src="app.js"></script>
+	<style type="text/css">
+	h1 { cursor: pointer; }
+	.highlight { color: red; }
+	</style>
+</head>
+<body class="container" ng-controller="MainController">
+	
+	<user-tile user="user1"></user-tile>
+
+	<div class="row">
+		<p class="col-sm-12">This example illustrates how you could go about implementing a business specific decorator directive instead of including business specific functionality into your component directive.</p>
+	</div>
+</body>
+</html>

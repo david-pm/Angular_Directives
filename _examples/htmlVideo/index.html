@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+	<title>Directive Exercises</title>
+	
+	<script src="../../libs/jquery.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="../libs/bootstrap.min.css">
+	<script src="../../libs/angular.min.js"></script>
+	<script src="app.js"></script>
+	<style type="text/css">
+		body { padding: 30px 0 0;}
+	</style>
+</head>
+<body ng-controller="MainController" class="container">
+	<video id="vid" spacebar-support event-pause="handlePause(evt)" controls preload="none" poster="http://media.w3.org/2010/05/sintel/poster.png">
+		<source src="http://media.w3.org/2010/05/sintel/trailer.mp4" type="video/mp4"></source>
+		<source src="http://media.w3.org/2010/05/sintel/trailer.webm5" type="video/webm5"></source>
+		<source src="http://media.w3.org/2010/05/sintel/trailer.ogv" type="video/ogv"></source>
+	</video>
+	<div 
+		ng-repeat="message in messages">
+		{{message.text}}
+	</div>
+</body>
+</html>
