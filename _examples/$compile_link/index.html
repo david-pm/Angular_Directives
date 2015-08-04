@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+	<title>Compile, controller, link</title>
+	
+	<link rel="stylesheet" type="text/css" href="../../libs/bootstrap.min.css">
+	<script src="../../libs/angular.min.js"></script>
+	<script src="app.js"></script>
+	
+</head>
+<body ng-controller="Ctrl">
+<div class="container">
+    <div class="row">
+    	<div class="col-sm-6 col-sm-offset-3">    
+	        <h2>Grasping controller, link, and $compile in Directives</h2>
+	        <p>This variable comes from the view's main controller: <b>{{job}}</b></p>
+	        
+	        <parent-directive></parent-directive>
+	    	
+	    	<compile-example></compile-example>
+
+			<p>Mess with the directive's scopes and see how things are affected. 
+			Good rule's of thumb:</p>
+			<ul>
+				<li>Compile is used to modify directive templates, append Angular expressions, inject another directive to the parent directive, etc.</li>
+				<li>Controller is used when you need to share or reuse directive method.</li>
+				<li>Link is used when you need to modify DOM, attach event handler or run some jQuery code.</li>
+			</ul>
+
+	    </div>
+    </div>    
+</div>
+</body>
+</html>
