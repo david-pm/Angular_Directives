@@ -39,11 +39,11 @@ ehthumbs.db
 Thumbs.db
 *.sass-cache*
 
-#node modules
+# tooling and misc #
 #############
 node_modules/
 bower_components/
 temp/
 Gruntfile.js
 package.json
-
+**/**/img/
