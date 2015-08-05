@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+	<title>The Dot &amp; Transclusion</title>
+	
+    <link rel="stylesheet" type="text/css" href="../../libs/bootstrap.min.css">
+	<script src="../../libs/angular.min.js"></script>
+	<script src="app.js"></script>
+	<style type="text/css">
+
+	</style>
+</head>
+<body ng-controller="MainController">
+	<div class="container">
+		<div class="col-sm-6 col-sm-offset-3">
+		    <h2>The Dot &amp; Transclusion</h2>
+		    
+		    <p>You said you live in - <b>{{location.city}}</b></p><hr />
+		    
+		    <my-directive question="What city do you live in?">
+		        <form class="form-group">
+		            <input class="form-control" type="text" name="city" ng-model="location.city" />
+		        </form>
+		    </my-directive>
+		    
+		</div>
+	</div>
+</body>
+</html>

@@ -22,9 +22,9 @@
 			<p>Mess with the directive's scopes and see how things are affected. 
 			Good rule's of thumb:</p>
 			<ul>
-				<li>Compile is used to modify directive templates, append Angular expressions, inject another directive to the parent directive, etc.</li>
-				<li>Controller is used when you need to share or reuse directive method.</li>
-				<li>Link is used when you need to modify DOM, attach event handler or run some jQuery code.</li>
+				<li>Controller is used when you need to share or re-use directive methods.</li>
+				<li>Link is used when you need to modify the DOM, attach event handlers or run some jQuery code.</li>
+				<li>Compile is used when you need to perform some operations before the link function is run (rare use case). Compile used to include the transclude function, but that now exists in the link function reducing compile's utility.</li>
 			</ul>
 
 	    </div>

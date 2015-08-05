@@ -15,6 +15,7 @@ angular
                   'function of this(parentDirective) directive\'s child' +
                   '(childDirective).</p><child-directive><child-directive>',
         controller: function($scope) {
+          console.log('parent', $scope);
           $scope.job = 'maid';
           $scope.say = function(job) {
             $scope.job = job;
@@ -25,10 +26,11 @@ angular
 
     function childDirective() {
       return {
-        scope: true,
+        scope: true, // inherits from parentDirective
         template: '<p>This will render the child\'s job variable since it has ' + 
                   'set its own local variable - <b>{{job}}</b></p>',
         controller: function($scope){ 
+          console.log('child', $scope);
           $scope.job = 'milkman'; 
         },
         link: function(scope) {
