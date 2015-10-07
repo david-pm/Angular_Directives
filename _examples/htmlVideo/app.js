@@ -1,16 +1,16 @@
 (function() {
 
-	angular.module('app', []);
+	angular.module('app', [])
 
-	angular.module('app').controller('MainController', ['$scope', function($scope){
+	.controller('MainController', ['$scope', function($scope){
 		$scope.messages = [];
 		$scope.handlePause = function(e) {
 			console.log(e);
 			$scope.messages.push({text: 'paused!'})
 		};
-	}]);
+	}])
 
-	angular.module('app').directive('eventPause', function($parse) {
+	.directive('eventPause', function($parse) {
 		return {
 			restrict: 'A',
 			link: function(scope, el, attrs) {
@@ -23,19 +23,39 @@
 				})
 			}
 		};
-	});
+	})
+	
+	/* 
+	** NOTE: could have also taken this approach
+	** but isolate scope limits scalablity down the 
+	** road since you can't have two directives on 
+	** the same element have isolate scope and or 
+	** inherit scope.
+	*/
 
-	angular.module('app').directive('spacebarSupport', function(){
+	// .directive('eventPause', function($parse) {
+	// 	return {
+	// 		restrict: 'A',
+	// 		scope: {
+	// 			eventPause: '&'
+	// 		},
+	// 		link: function(scope, el, attrs) {
+	// 			el.on('pause', function(event) {
+	// 				scope.$apply(function() {
+	// 					scope.eventPause();
+	// 				});
+	// 			})
+	// 		}
+	// 	};
+	// })
+
+	.directive('spacebarSupport', function(){
 		return {
 			link: function(scope, el, attrs) {
 				$('body').on('keypress', function(evt) {
 					var vidEl = el[0];
 					if (evt.keyCode === 32) {
-						if (vidEl.paused) {
-							vidEl.play();
-						} else {
-							vidEl.pause();
-						}
+						(vidEl.paused) ? vidEl.play() : vidEl.pause();
 					}
 				})
 			}
