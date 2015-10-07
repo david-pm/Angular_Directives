@@ -2,6 +2,7 @@
   "name": "angular_services",
   "version": "1.0.0",
   "description": "examples of using services in angular",
+  "repository": "git@github.com:david-pm/Angular_Directives.git",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
