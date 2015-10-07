@@ -14,11 +14,11 @@
 		return {
 			restrict: 'A',
 			link: function(scope, el, attrs) {
-				var fn = $parse(attrs['eventPause']);
-				console.log(fn); // >> handlePause
+				var getter = $parse(attrs['eventPause']);
+				console.log(getter); // >> handlePause
 				el.on('pause', function(event) {
 					scope.$apply(function() {
-						fn(scope, {evt: event});
+						getter(scope, {evt: event});
 					})
 				})
 			}

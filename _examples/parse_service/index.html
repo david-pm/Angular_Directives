@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+	<title>Directive Exercises</title>
+	<script src="../../libs/jquery.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="../../libs/bootstrap.min.css">
+	<style type="text/css">body { padding: 30px 0 0; }</style>
+</head>
+<body class="container">
+  <div class="well">
+    <h2>Demo of how to use the
+      <a href="https://docs.angularjs.org/api/ng/service/$parse" target="_blank">$parse</a>
+      service in AngularJS
+    </h2>
+    <h4>Angular uses $parse behind the scenes to evaluate things like ng-show, ng-style, etc. but we can use it explicity.</h4>
+  </div>
+
+  <noob></noob>
+  <br />
+  <am></am>
+  <br />
+  <adv eq="2 + 2"></adv>
+  <adv eq="2 / 4"></adv>
+  <adv eq="2 === 2"></adv>
+  <br />
+  <div pro></div>
+
+  <script src="../../libs/angular.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
