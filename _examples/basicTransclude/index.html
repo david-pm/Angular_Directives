@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+	<title>Very Basic Transclusion Demo</title>
+	<link rel="stylesheet" type="text/css" href="../../libs/bootstrap.min.css">
+  <style media="screen">
+    html, body {
+      background: #222; font-family: monospace !important; color: white;
+    }
+    .text-primary { color: chartreuse; }
+    .text-warning { color: #FF5600; }
+    hr { border-top: 2px solid black; }
+  </style>
+</head>
+<body class="container" ng-controller="MainController">
+<div class="row">
+	<div class="col-sm-12">
+
+    <h3>A Basic Transclusion Demo</h3>
+
+    <div foo>
+    When this 'foo' directive is compiled and linked into the DOM by AngularJS,
+    the directive's template will replace the content within this DIV.
+    You wont read this. You will read what's in the template.
+    </div>
+    <hr>
+    <div bar>
+    You WILL read this, because the content will be transcluded
+    (it'll be cloned, removed, and put back into the DOM)
+    </div>
+
+
+	</div>
+</div>
+
+
+<script src="../../libs/jquery.min.js"></script>
+<script src="../../libs/angular.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
