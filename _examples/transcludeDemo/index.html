@@ -1,22 +1,15 @@
 <!DOCTYPE html>
 <html ng-app="app">
 <head>
-	<title>Directive Exercises</title>
-	
-	<script src="../../libs/jquery.min.js"></script>
+	<title>Directives | Transclusion</title>
 	<link rel="stylesheet" type="text/css" href="../../libs/bootstrap.min.css">
-	<script src="../../libs/angular.min.js"></script>
-	<script src="app.js"></script>
-	<style type="text/css">
-
-	</style>
 </head>
 <body class="container" ng-controller="MainController">
 <div class="row">
 	<div class="col-sm-12">
-		
+
 		<h2 class="text-center">Tranclusion</h2>
-		
+
 		<display-box>
 			<p>This is transcluded content:</p>
 			<ul>
@@ -24,7 +17,7 @@
 				<li>{{messages.text2}}</li>
 			</ul>
 		</display-box>
-		
+
 	</div>
 	<div class="col-sm-12">
 		<div class="text-center">
@@ -36,5 +29,18 @@
 		</div>
 	</div>
 </div>
+<hr>
+<div class="row">
+	<div class="col-sm-12">
+		<p class="text-center">
+			It is best practice to have isolated scope or <em>at least</em>
+			inherited scope when using transclusion
+		</p>
+	</div>
+</div>
+
+<script src="../../libs/jquery.min.js"></script>
+<script src="../../libs/angular.min.js"></script>
+<script src="app.js"></script>
 </body>
 </html>

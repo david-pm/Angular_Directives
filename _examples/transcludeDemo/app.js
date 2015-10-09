@@ -35,15 +35,13 @@ angular
 			}
 		};
 	}])
-	
+
 	.directive("welcome", [function() {
 	  	return {
 	    	restrict: "E",
 	    	scope: {},
 	    	transclude: true,
-  			template: "<div>This is the welcome component</div> <ng-transclude></ng-transclude>" + 
-  					  "<hr /><div class='col-sm-6 col-sm-offset-3'> <img class='img-responsive'" +
-  					  " src='img/transclude_scope.png' /> </div>"
+  			template: "<div>This is the welcome component</div> <ng-transclude></ng-transclude>"
 	    };
 	}]);
 
