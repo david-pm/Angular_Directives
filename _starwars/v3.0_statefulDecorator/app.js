@@ -1,8 +1,8 @@
 (function() {
 
-	angular.module('app', []);
+	angular.module('app', [])
 
-	angular.module('app').controller('MainController', 
+	.controller('MainController',
 		['$scope', function($scope){
 			$scope.user1 = {
 				name: "Han Solo",
@@ -24,25 +24,26 @@
 				level: 0,
 				friends: ["Han", "Chewbacca", "Leia"]
 			};
-			
-		} // controller fn
-	]); // MainController
 
-	angular.module('app').directive('stateDisplay', [function(){
+		} // controller fn
+	]) // MainController
+
+	.directive('stateDisplay', [function(){
 		return {
 			link: function(scope, el, attrs) {
-				var parms = attrs['stateDisplay'].split(' '),
-					linkVar = parms[0];
+				var params = attrs['stateDisplay'].split(' '),
+					  whatToWatch = params[0];
 
-				scope.$watch(linkVar, function(newVal) {
-					el.css('background', parms[newVal + 1]);
+				scope.num = params.length - 1;
+				scope.$watch(whatToWatch, function(newVal) {
+					el.css('background', params[newVal + 1]);
 				});
-								
+
 			}
 		};
-	}]);
+	}])
 
-	angular.module('app').directive('userInfoCard', 
+	.directive('userInfoCard',
 		[function(){
 			return {
 				templateUrl: "userinfocard.html",
@@ -50,12 +51,12 @@
 					user: "=",
 					initCollapsed: '@collapsed'
 				}, // false is default which is shared scope, set to true for inherited scope, set to {} for isolated scope
-				
+
 				controller: function($scope) {
 					$scope.collapsed = ($scope.initCollapsed === 'true');
 					$scope.nextState = function() {
 						$scope.user.level++;
-						$scope.user.level = $scope.user.level % 4;
+						$scope.user.level = $scope.user.level % $scope.num; // don't let user.level go past the length of stateDisplay's passed params - 1
 					}
 					$scope.knightMe = function(user) {
 						user.rank = "Knight";
@@ -72,10 +73,10 @@
 
 				} // directive controller
 			}; //return
-		}]); // directive
-	
+		}]) // directive
 
-	angular.module('app').directive('removeFriend', 
+
+	.directive('removeFriend',
 		[function(){
 			return {
 				restrict: 'E',
@@ -94,13 +95,13 @@
 					$scope.confirmRemove = function() {
 						$scope.notifyParent();
 					}
-					
+
 				} // directive controller
 			}; //return
-		}]); // directive
+		}]) // directive
 
 
-	angular.module('app').directive('theAddress', 
+	.directive('theAddress',
 		[function(){
 			return {
 				restrict: 'E',
