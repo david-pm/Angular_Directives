@@ -1,12 +1,12 @@
 (function() {
 
-	angular.module('app', []);
+	angular.module('app', [])
 
-	angular.module('app').controller('MainController', ['$scope', function($scope){
+	.controller('MainController', ['$scope', function($scope){
 		$scope.answers = { baseLocation: "Yavin 4", father: true }
-	}]);
+	}])
 
-	angular.module('app').directive('myQuestion', [function(){
+	.directive('myQuestion', [function(){
 		return {
 			scope: {
 				questionText: '@q'
@@ -15,7 +15,7 @@
 			templateUrl: 'myQuestion.html',
 			transclude: true,
 			link: function($scope, iElm, iAttrs, controller) {
-				
+
 			}
 		};
 	}]);
