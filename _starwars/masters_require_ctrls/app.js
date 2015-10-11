@@ -16,7 +16,7 @@ angular.module('app', [])
 			link: {
 				pre: function(scope, el, attr) {
 					el.data('name', name); // data(key, val) is jQuery fn
-					console.log(scope.master + ' has no master');
+					console.log(name + ' has no master');
 				}
 			}
 		};
@@ -50,6 +50,18 @@ angular.module('app', [])
 				} else {
 					console.log('Starkiller has no master!');
 				}
+			}
+		};
+	}])
+
+	.directive('bobaFett', [function(){
+		return {
+			scope: true,
+			require: ['^vader', '^emperor'], // can require in multiple ctrls although rarely needed
+			link: function(scope, el, attr, ctrls) {
+				el.data('name', 'Boba Fett');
+				console.log('Boba Fett\'s master is ' + ctrls[0].name);
+				console.log('Boba Fett\'s master\'s master is ' + ctrls[1].name);
 			}
 		};
 	}]);
