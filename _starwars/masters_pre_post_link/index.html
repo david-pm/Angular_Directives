@@ -2,24 +2,58 @@
 <html ng-app="app">
 <head>
 	<title>Directive Exercises</title>
-	
+
 	<script src="../../libs/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href="../../libs/bootstrap.min.css">
 	<script src="../../libs/angular.min.js"></script>
 	<script src="app.js"></script>
-	
+
 </head>
 <body ng-controller="MainController">
 	<div class="container">
 		<h1>Master and Apprentice</h1>
+		<div class="well">
+			<p>
+				As the name implies, the link function is responsible for linking the model
+				to the templates. This is where Angular does its data binding to compiled
+				templates.
+			</p>
+			<p>
+				There are five parameters in the link funciton:<br>
+				<em>link: function (scope, element, attributes, controller, transcludeFn){ }</em>
+			</p>
+			<p>
+				Properties defined on the scope within the link function are linked to the
+				template once the link function executes. Angular allows us to turn link into
+				an object that can be split into two separate methods called pre-link and post-link.
+			</p>
+			<p>
+				The link function is run by default as a post-link method. Most of the time we don't
+				even need to think about it. The signature is of the pre-link function is same as
+				that of a post-link; the only difference between them is the order in which they get
+				executed.
+			</p>
+			<p>
+				When a directive contains child directives, all of the child directive’s link
+				functions execute first then the parent directive link function. This can create
+				issues where you can't capture scope properties on the parent with the child. This
+				is where pre-link comes in handy. A parent directive's pre-link will execute
+				before all of its child directive functions.
+			</p>
+			<h4>Pre-link and post-link flow:</h4>
+			<h4>
+				Parent:pre-link ==> Child:pre-link ==> Grandchild:pre-link <br>
+				Parent:post-link <== Child:post-link <== Grandchild:post-link
+			</h4>
+		</div>
 		<p>Open your console</p>
-		
+
 		<emperor>
 			<vader>
 				{{check}}
 				<star-killer></star-killer>
 			</vader>
-		</emperor>	
+		</emperor>
 	</div>
 </body>
 </html>

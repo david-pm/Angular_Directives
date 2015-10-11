@@ -2,7 +2,6 @@
 angular.module('app', [])
 
 	.controller('MainController', function($scope){
-
 	})
 
 	.directive('emperor', [function(){
@@ -17,6 +16,7 @@ angular.module('app', [])
 			link: {
 				pre: function(scope, el, attr) {
 					el.data('name', name); // data(key, val) is jQuery fn
+					console.log(scope.master + ' has no master');
 				}
 			}
 		};
@@ -50,7 +50,6 @@ angular.module('app', [])
 				} else {
 					console.log('Starkiller has no master!');
 				}
-
 			}
 		};
 	}]);
