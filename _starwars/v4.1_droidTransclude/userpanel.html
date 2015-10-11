@@ -1,8 +1,7 @@
 <div class="panel panel-primary">
-	
 	<div class="panel-heading" style="overflow: hidden;"
 		ng-click="collapse()">
-		
+
 		<h2 class="pull-left" style="margin: 0;">
 			<span class="someclass"
 				state-display="level user-ok user-warning user-problem user-error">
@@ -11,12 +10,11 @@
 		</h2>
 		<button class="btn btn-info pull-right"
 			ng-click="nextState($event)">Next State</button>
-	
 	</div>
-	
+
 	<div class="panel-body"
 		ng-hide="collapsed"
 		ng-transclude>
+		<!-- infoCard content gets transcluded in here -->
 	</div>
-
 </div>

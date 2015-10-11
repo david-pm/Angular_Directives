@@ -1,9 +1,8 @@
 (function() {
 
-	angular.module('app', []);
+	angular.module('app', [])
 
-	angular.module('app').controller('MainController', 
-		['$scope', function($scope){
+	.controller('MainController', ['$scope', function($scope){
 			$scope.person1 = {
 				name: "Han Solo",
 				address: {
@@ -34,11 +33,11 @@
 				level: 1
 				// owners etc
 			}
-			
-		} // controller fn
-	]); // MainController
 
-	angular.module('app').directive('stateDisplay', [function(){
+		} // controller fn
+	]) // MainController
+
+	.directive('stateDisplay', [function(){
 		return {
 			link: function(scope, el, attrs) {
 				var parms = attrs['stateDisplay'].split(' '),
@@ -49,13 +48,12 @@
 					el.removeClass(classes.join(' '));
 					el.addClass(classes[newVal]);
 				});
-								
+
 			}
 		};
-	}]);
+	}])
 
-	angular.module('app').directive('userPanel', 
-		[function() {
+	.directive('userPanel', [function() {
 			return {
 				transclude: true,
 				templateUrl: 'userpanel.html',
@@ -72,59 +70,51 @@
 						$scope.level++;
 						$scope.level = $scope.level % 4;
 					}
-					
+
 					$scope.collapse = function() {
 						$scope.collapsed = !$scope.collapsed;
 					};
 				}
 			}
-	}]);
+	}])
 
-	angular.module('app').directive('personInfoCard', 
-		[function(){
+	.directive('personInfoCard', [function(){
 			return {
 				templateUrl: "personinfocard.html",
 				scope: {
 					person: "=",
 					initCollapsed: '@collapsed'
-				}, // false is default which is shared scope, set to true for inherited scope, set to {} for isolated scope
-				
+				},
 				controller: function($scope) {
-					
 					$scope.knightMe = function(person) {
 						person.rank = "Knight";
 					};
-					
+
 					$scope.removeFriend = function(friend) {
 						var i = $scope.person.friends.indexOf(friend);
 						if (i > -1) {
 							$scope.person.friends.splice(i, 1);
 						}
 					};
-
 				} // directive controller
 			}; //return
-		}]); // directive
+		}]) // directive
 
-	angular.module('app').directive('droidInfoCard', 
-		[function(){
+	.directive('droidInfoCard',[function(){
 			return {
 				templateUrl: "droidinfocard.html",
 				scope: {
 					droid: "=",
 					initCollapsed: '@collapsed'
-				}, // false is default which is shared scope, set to true for inherited scope, set to {} for isolated scope
-				
+				},
 				controller: function($scope) {
-					
 
 				} // directive controller
 			}; //return
-		}]); // directive
-	
+		}]) // directive
 
-	angular.module('app').directive('removeFriend', 
-		[function(){
+
+	.directive('removeFriend',[function(){
 			return {
 				restrict: 'E',
 				templateUrl: 'removeFriend.html',
@@ -142,14 +132,12 @@
 					$scope.confirmRemove = function() {
 						$scope.notifyParent();
 					}
-					
 				} // directive controller
 			}; //return
-		}]); // directive
+		}]) // directive
 
 
-	angular.module('app').directive('theAddress', 
-		[function(){
+	.directive('theAddress',[function(){
 			return {
 				restrict: 'E',
 				scope: true, // inherited scope
