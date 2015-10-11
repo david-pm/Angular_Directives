@@ -1,9 +1,8 @@
 (function() {
 
-	angular.module('app', []);
+	angular.module('app', [])
 
-	angular.module('app').controller('MainController', 
-		['$scope', function($scope){
+	.controller('MainController', ['$scope', function($scope){
 			$scope.user1 = {
 				name: "Han Solo",
 				address: {
@@ -27,21 +26,20 @@
 				yearsOfJediTraining: 4,
 				friends: ["Han", "Chewbacca", "Leia"]
 			};
-			
 		} // controller fn
-	]); // MainController
+	]) // MainController
 
-	angular.module('app').factory('jediPolicy', function($q){
+	.factory('jediPolicy', ['$q', function($q){
 		return {
 			advanceToKnight: function(candidate) {
 				var promise = $q(function(resolve, reject) {
-					if (candidate.hasForce && 
+					if (candidate.hasForce &&
 					(
-						candidate.yearsOfJediTraining > 20 
-						|| candidate.isChosenOne 
+						candidate.yearsOfJediTraining > 20
+						|| candidate.isChosenOne
 						|| (candidate.master === 'Yoda' && candidate.yearsOfJediTraining > 3)
-					) 
-					&& candidate.masterApproves 
+					)
+					&& candidate.masterApproves
 					&& candidate.passedTrials) {
 						candidate.rank = "Jedi Knight";
 						resolve(candidate);
@@ -52,10 +50,10 @@
 				return promise;
 			}
 		};
-	})
+	}])
 
-	angular.module('app').directive('userInfoCard', 
-		['jediPolicy', 
+	.directive('userInfoCard',
+		['jediPolicy',
 		function(jediPolicy){
 			return {
 				templateUrl: "userinfocard.html",
@@ -83,10 +81,10 @@
 
 				} // directive controller
 			}; //return
-		}]); // directive
-	
+		}]) // directive
 
-	angular.module('app').directive('removeFriend', 
+
+	.directive('removeFriend',
 		[function(){
 			return {
 				restrict: 'E',
@@ -105,13 +103,13 @@
 					$scope.confirmRemove = function() {
 						$scope.notifyParent();
 					}
-					
+
 				} // directive controller
 			}; //return
-		}]); // directive
+		}]) // directive
 
 
-	angular.module('app').directive('theAddress', 
+	.directive('theAddress',
 		[function(){
 			return {
 				restrict: 'E',
@@ -129,4 +127,4 @@
 			}; //return
 		}]); // directive
 
-})();
+}());
