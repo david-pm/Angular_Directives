@@ -1,13 +1,8 @@
 <!DOCTYPE html>
 <html ng-app="app">
 <head>
-	<title>Directive Exercises</title>
-	
-	<script src="../../libs/jquery.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="../../libs/bootstrap.min.css">
-	<script src="../../libs/angular.min.js"></script>
-	<script src="app.js"></script>
-	
+	<title>Directives | Recreate ngRepeat</title>
+  <link rel="stylesheet" type="text/css" href="../../libs/bootstrap.min.css">
 </head>
 <body ng-controller="MainController">
 	<h1 class="well">Bounty Hunters</h1>
@@ -16,10 +11,14 @@
 			<p>Rating: {{hunter.rating}}</p>
 		</div>
 		<hr />
-		<button class="btn btn-primary" 
+		<button class="btn btn-primary"
 			ng-click="add()">Add</button>
-		<button class="btn btn-primary" 
+		<button class="btn btn-primary"
 			ng-click="remove()">Remove</button>
 	</div>
+
+	<script src="../../libs/jquery.min.js"></script>
+	<script src="../../libs/angular.min.js"></script>
+	<script src="app.js"></script>
 </body>
 </html>
