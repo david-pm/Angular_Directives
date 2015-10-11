@@ -32,8 +32,7 @@
 				},
 				level: 1
 				// owners etc
-			}
-
+			};
 		} // controller fn
 	]) // MainController
 
@@ -51,31 +50,6 @@
 
 			}
 		};
-	}])
-
-	.directive('userPanel', [function() {
-			return {
-				transclude: true,
-				templateUrl: 'userpanel.html',
-				scope: {
-					name: '@',
-					level: '=',
-					initCollapsed: '@collapsed'
-				},
-				controller: function($scope) {
-					$scope.collapsed = ($scope.initCollapsed === 'true');
-					$scope.nextState = function(e) {
-						e.stopPropagation();
-						e.preventDefault();
-						$scope.level++;
-						$scope.level = $scope.level % 4;
-					}
-
-					$scope.collapse = function() {
-						$scope.collapsed = !$scope.collapsed;
-					};
-				}
-			}
 	}])
 
 	.directive('personInfoCard', [function(){
@@ -112,6 +86,32 @@
 				} // directive controller
 			}; //return
 		}]) // directive
+
+		// nested within an infoCard -- contains shared functionality
+		.directive('userPanel', [function() {
+				return {
+					transclude: true,
+					templateUrl: 'userpanel.html',
+					scope: {
+						name: '@',
+						level: '=',
+						initCollapsed: '@collapsed'
+					},
+					controller: function($scope) {
+						$scope.collapsed = ($scope.initCollapsed === 'true');
+						$scope.nextState = function(e) {
+							e.stopPropagation();
+							e.preventDefault();
+							$scope.level++;
+							$scope.level = $scope.level % 4;
+						}
+
+						$scope.collapse = function() {
+							$scope.collapsed = !$scope.collapsed;
+						};
+					}
+				}
+		}])
 
 
 	.directive('removeFriend',[function(){
