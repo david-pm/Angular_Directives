@@ -4,7 +4,7 @@ angular.module('app', [])
     return {
       restrict: 'E',
       link: function(scope, element, attrs) {
-        var getter = $parse('name'), // var getter = function(name) { return name; }
+        var getter = $parse('name'),
             setter = getter.assign,
             context = {name: 'from context'},
             locals = {name: 'from locals'}; // overrides context key is found locally
@@ -18,7 +18,7 @@ angular.module('app', [])
     return {
       restrict: 'E',
       link: function(scope, element, attrs) {
-        var getter = $parse('something'), // var getter = function(something) { return something; }
+        var getter = $parse('something'),
             setter = getter.assign,
             context = {something: 'from context'};
         setter(context, 'reset by am setter');
@@ -34,7 +34,7 @@ angular.module('app', [])
       scope: true, // when set to shared scope -- false -- its no longer reusable
       link: function(scope, element, attrs) {
         //scope.inner = $parse(attrs['eq']);
-        scope.inner = $parse(attrs['eq'])();
+        scope.inner = $parse(attrs['eq'])(); // returned function must be called somehow since there is computation to be performed
       },
       //template: '<p>{{ inner() }}</p>'
       template: '<p>{{ inner }}</p>'
@@ -50,9 +50,9 @@ angular.module('app', [])
             getter = $parse('subject')
             setter = getter.assign;
 
-        scope.courseName = getter(scope, course);
+        scope.courseName = getter(scope, course); // initialize in view
         scope.parseAgain = function() {
-          scope.courseName = setter(scope, scope.inName);
+          setter(scope, scope.inName);
           scope.courseName = getter(scope);
           //scope.courseName = scope.inName;
         };
