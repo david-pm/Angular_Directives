@@ -16,22 +16,28 @@
     <h2><a href="http://angular-tips.com/blog/2014/03/transclusion-and-scopes/" target="_blank">
       Transclusion and Scopes
     </a></h2>
+		<p>
+			Element transclusion (transclude: 'element') is when the actual element/node itself
+			becomes part of the trancluded content. The whole thing is taken from the DOM and
+			made available to the transclude function.
+		</p>
+		<p>
+			Angular leaves a comment in place of the removed piece of DOM to hold your place and
+			it is that comment that is return to the link function as the element parameter so
+			you can have context and control over where the trancluded content should go.
+		</p>
     <p>
-      Transcluded html (cloned and pulled into directive's template) does not have access
-      to the isolated scope of the directive (except header since its declared on the
-      directive's scope object).
+			One use case for element transclusion is when you want to defer the linking and
+			attachment for some part of your UI until something happens.
+		</p>
+		<p>
+			Since element transclusion essentially removes part of the DOM and makes it
+			available for you to put back using the transclusion function, you have control
+			into when that happens. 
     </p>
-    <p>
-      Transcluded html is also not a new child scope of the directive, but rather a child
-      scope of the controller.
-    </p>
-    <p>
-      The link function has an optional fifth parameter called the <em>transclude function</em>. The
-      transclude function receives an optional first parameter, and a another function. This
-      other function clones the transcluded html and allows you to do whatever you need to do
-      with it. The first parameter takes in a scope, which will be used as the scope that will
-      be attached to the cloned html.
-    </p>
+		<p>
+
+		</p>
 
 		<hr>
 

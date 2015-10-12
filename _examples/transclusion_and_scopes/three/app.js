@@ -19,7 +19,7 @@ angular
         scope: {
           header: '='
         },
-        transclude: true,
+        transclude: 'element',
         link: function(scope, element, attrs, ctrl, transclude) {
           scope.person = {
             name: 'Directive Joe',
@@ -28,7 +28,7 @@ angular
 
           scope.header = 'Directive\'s header';
 					transclude(scope, function(clone) {
-							element.append(clone);
+							element.after(clone);
 					})
         }
       };
