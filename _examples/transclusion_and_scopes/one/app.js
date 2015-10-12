@@ -20,7 +20,7 @@ angular
         scope: {
           header: '='
         },
-        transclude:true,
+        transclude: true,
         template: '<div>This is not transcluded, btw.</div><div ng-transclude></div>',
         link: function(scope, element, attrs, ctrl, transclude) {
           scope.person = {

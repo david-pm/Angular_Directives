@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+	<title>Transclusion and Scopes</title>
+	<link rel="stylesheet" type="text/css" href="../../../libs/bootstrap.min.css">
+  <style media="screen">
+    html, body {background: #222; font-family: monospace !important; color: orangered;}
+    a, a:link, a:visited, a:hover, a:active { color: chartreuse; }
+    hr { border-top: 2px solid black; }
+  </style>
+</head>
+<body class="container" ng-controller="MainController">
+<div class="row">
+	<div class="col-sm-12">
+
+    <h2><a href="http://angular-tips.com/blog/2014/03/transclusion-and-scopes/" target="_blank">
+      Transclusion and Scopes
+    </a></h2>
+    <p>
+      Transcluded html (cloned and pulled into directive's template) does not have access
+      to the isolated scope of the directive (except header since its declared on the
+      directive's scope object).
+    </p>
+    <p>
+      Transcluded html is also not a new child scope of the directive, but rather a child
+      scope of the controller.
+    </p>
+    <p>
+      The link function has an optional fifth parameter called the <em>transclude function</em>. The
+      transclude function receives an optional first parameter, and a another function. This
+      other function clones the transcluded html and allows you to do whatever you need to do
+      with it. The first parameter takes in a scope, which will be used as the scope that will
+      be attached to the cloned html.
+    </p>
+
+		<hr>
+
+    <person header="header">
+      <h3>{{header}}</h3>
+      <p>Hello, I am {{person.name}} and,</p>
+      <p>I am a {{person.profession}}</p>
+      <p>This is transcluded content, btw.</p>
+    </person>
+
+
+	</div>
+</div>
+
+
+<script src="../../../libs/jquery.min.js"></script>
+<script src="../../../libs/angular.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
