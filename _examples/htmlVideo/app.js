@@ -30,7 +30,7 @@
 	** but isolate scope limits scalablity down the 
 	** road since you can't have two directives on 
 	** the same element have isolate scope and or 
-	** inherit scope.
+	** inherited scope.
 	*/
 
 	// .directive('eventPause', function($parse) {
